@@ -4,13 +4,23 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+
     <servlet>
-        <servlet-name>UploadServlet</servlet-name>
-        <servlet-class>com.an.servlet.UploadServlet</servlet-class>
+        <servlet-name>uploadFileServlet</servlet-name>
+        <servlet-class>com.an.servlet.uploadFileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UploadServlet</servlet-name>
-        <url-pattern>/upload</url-pattern>
+        <servlet-name>uploadFileServlet</servlet-name>
+        <url-pattern>/uploadFile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>uploadFolderServlet</servlet-name>
+        <servlet-class>com.an.servlet.uploadFolderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploadFolderServlet</servlet-name>
+        <url-pattern>/uploadFolder</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -26,20 +26,22 @@
 <body>
 <p class="text">上传单个文件:</p>
 <div class="file-box">
-    <form method="post" action="upload" enctype="multipart/form-data">
+    <form method="post" action="uploadFile" enctype="multipart/form-data">
         <input type='button' class='btn' value='浏览...' />
         <input type='text' name='fileTextField' id='fileTextField' class='txt' />
-        <input type="file" name="fileField" class="file" id="fileField" size="28" onchange="showFileName ()"/>
-        <input type="submit" name="submit" class="btn" value="上传" />
+        <input type="file" name="fileField" class="file" id="fileField" size="28"/>
+        <input type="submit" name="submit" class="btn" id = "fileSubmit" value="上传" disabled="true" />
     </form>
 </div>
 
 <p class="text">上传文件夹:</p>
 <div class="file-box">
-    <input type='button' class='btn' value='浏览...' />
-    <input type='text' name='folderTextField' id='folderTextField' class='txt' />
-    <input type="file" name="folderField" class="file" webkitdirectory multiple  id="folderField" size="28"/>
-    <input type="submit" name="submit" class="btn" value="上传" />
+    <form method="post" action="uploadFolder" enctype="multipart/form-data">
+        <input type='button' class='btn' value='浏览...' />
+        <input type='text' name='folderTextField' id='folderTextField' class='txt' />
+        <input type="file" name="folderField" class="file" webkitdirectory multiple  id="folderField" size="28"/>
+        <input type="submit" name="submit" class="btn" id = "folderSubmit" value="上传" disabled="true"/>
+    </form>
 </div>
 </body>
 
@@ -52,6 +54,7 @@
             var index =fileInfo.lastIndexOf("\\");
             var name = fileInfo.substr(index + 1);
             $("#fileTextField").attr("value", name);
+            $("#fileSubmit").attr("disabled", false);
         }
     }, false);
 
@@ -61,9 +64,8 @@
             var filesList = event.target.files;
             var filesCount = filesList.length;
             var filesRoot = filesList[0].name;
-            //alert(files.name + filesList[0].toString());
             $("#folderTextField").attr("value",filesRoot +" 等共" + filesCount.toString()+"个文件");
-            //alert(files.length);
+            $("#folderSubmit").attr("disabled", false);
         }
     }, false);
 

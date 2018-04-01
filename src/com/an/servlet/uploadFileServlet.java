@@ -16,8 +16,8 @@ import java.util.List;
 
 import com.an.analysis.*;
 
-@WebServlet(name = "UploadServlet ")
-public class UploadServlet extends HttpServlet {
+@WebServlet(name = "uploadFileServlet ")
+public class uploadFileServlet extends HttpServlet {
 
     licenseType analyst = new licenseType();
 
